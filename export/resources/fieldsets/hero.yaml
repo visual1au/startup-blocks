@@ -1,0 +1,13 @@
+title: Hero
+fields:
+  -
+    import: colour_picker
+    prefix: bg_
+  -
+    import: background_overlay
+  -
+    import: header
+  -
+    import: markdown_content
+  -
+    import: buttons

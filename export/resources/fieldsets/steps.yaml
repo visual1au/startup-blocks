@@ -1,0 +1,50 @@
+title: Steps
+fields:
+  -
+    handle: variant
+    field:
+      options:
+        -
+          key: accordion
+          value: Accordion
+        -
+          key: cards
+          value: Cards
+      default: cards
+      type: button_group
+      display: Variant
+  -
+    import: colour_picker
+    prefix: bg_
+  -
+    handle: slug
+    field:
+      type: slug
+      display: Slug
+      instructions: 'The slug is required for anchored links.'
+      generate: false
+  -
+    import: header
+  -
+    handle: steps
+    field:
+      type: replicator
+      display: Steps
+      sets:
+        new_set_group:
+          display: 'New Set Group'
+          sets:
+            new_set:
+              display: 'New Set'
+              fields:
+                -
+                  handle: heading
+                  field:
+                    character_limit: 30
+                    type: text
+                    display: Heading
+                -
+                  handle: content
+                  field:
+                    type: textarea
+                    display: Content

@@ -1,0 +1,13 @@
+title: 'Featured Image'
+fields:
+  -
+    import: background_overlay
+  -
+    handle: height
+    field:
+      min: 100
+      max: 1000
+      step: 10
+      default: 500
+      type: range
+      display: Height

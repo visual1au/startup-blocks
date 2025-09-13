@@ -1,0 +1,77 @@
+{{ partial:page_builder/{{ theme_settings:template }}/block class="steps"}}
+<div class="mb-10 text-center md:text-start">
+    {{ partial:components/header }}
+</div>
+{{ if variant === 'accordion' }}
+<nav
+    x-data="{ selectedAccordionItem: '{{ steps:0:id }}' }"
+    aria-label="Progress"
+>
+    <ol role="list" class="overflow-hidden">
+        {{ steps }}
+        <li class="relative {{ if !last }} pb-10 {{ /if }}">
+            {{ if !last }}
+            <div aria-hidden="true" class="vertical-line"></div>
+            {{ /if }}
+            <a
+                id=" controlsAccordionItem{{ id }}"
+                type="button"
+                aria-controls="accordionItem{{ id }}"
+                @click="selectedAccordionItem = (selectedAccordionItem === '{{ id }}' ? null : '{{ id }}')"
+                :aria-expanded="selectedAccordionItem === '{{ id }}' ? 'true' : 'false'"
+                class="group step-item"
+            >
+                <span class="step-number">
+                    <span
+                        class="step-count"
+                        :class="{
+                                'active': selectedAccordionItem === '{{ id }}',
+                                'inactive': selectedAccordionItem !== '{{ id }}'
+                            }"
+                    >
+                        {{ count }}
+                    </span>
+                </span>
+                <span class="content">
+                    <h4>{{ heading }}</h4>
+                    <p
+                        x-cloak
+                        x-show="selectedAccordionItem === '{{ id }}'"
+                        id="accordionItem{{ id }}"
+                        role="region"
+                        aria-labelledby="controlsAccordionItem{{ id }}"
+                        x-collapse.duration.500
+                    >
+                        {{ content }}
+                    </p>
+                </span>
+            </a>
+        </li>
+        {{ /steps }}
+    </ol>
+</nav>
+{{ else }}
+<div class="steps-list-looped">
+    {{ steps }}
+    <div
+        x-data="{ visible: false }"
+        x-intersect.once="visible = true"
+        class="step-wrapper"
+    >
+        <div class="my-5 p-6 bg-lightGrey relative">
+            <h3 class="text-primary font-bold mb-6">0{{ count }}</h3>
+            <h4 class="text-black font-bold uppercase mb-2">{{ heading }}</h4>
+            <p class="text-darkGrey">{{ content }}</p>
+
+            {{ if !first }}
+            <i
+                class="fa sharp fa-thin fa-chevron-right absolute bottom-[50%] -left-1.5 fa-xs text-primary"
+            ></i>
+            {{ /if }}
+        </div>
+    </div>
+    {{ /steps }}
+</div>
+{{ /if }}
+<!-- End -->
+{{ /partial:page_builder/{{ theme_settings:template }}/block }}

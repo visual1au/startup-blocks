@@ -1,0 +1,61 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: enable_all
+            field:
+              type: toggle
+              display: 'Enable/diable ALL scripts'
+              default: true
+          -
+            handle: scripts
+            field:
+              type: replicator
+              display: Scripts
+              sets:
+                new_set_group:
+                  display: 'New Set Group'
+                  sets:
+                    scripts:
+                      display: Scripts
+                      fields:
+                        -
+                          handle: enable_script
+                          field:
+                            type: toggle
+                            display: 'Enable/disable the script'
+                            default: true
+                            width: 50
+                        -
+                          handle: location
+                          field:
+                            options:
+                              -
+                                key: header
+                                value: 'Header (Default -- if you are not sure)'
+                              -
+                                key: start_of_page
+                                value: 'Start of Page (Just after the open body tag -- Analytics ONLY)'
+                              -
+                                key: end_of_page
+                                value: 'End of Page (Just before the close body tag -- Deferred scripts ONLY)'
+                            default: header
+                            type: select
+                            display: Location
+                            instructions: 'Please select where you want to place the script.'
+                            width: 50
+                            validate:
+                              - required
+                        -
+                          handle: name
+                          field:
+                            type: text
+                            display: Name
+                        -
+                          handle: script
+                          field:
+                            type: code
+                            display: Script

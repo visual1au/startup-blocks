@@ -1,0 +1,30 @@
+{{ partial:page_builder/{{ theme_settings:template }}/block }} {{ panels }}
+<!-- Start -->
+<div class="panels {{ if !last }} not-last {{ /if }}">
+    <div
+        class="content {{ if index % 2 }} odd-panel {{ else }} even-panel {{ /if }}"
+    >
+        <!-- Icon -->
+        {{ if icon }}
+        <div class="icon">
+            {{ icon }} {{ partial:components/icon }} {{ /icon }}
+        </div>
+        {{ /if }}
+
+        <!-- Title -->
+        {{ partial:components/header }}
+
+        <!-- Text -->
+        {{ partial:components/markdown }}
+
+        <!-- Buttons -->
+        <div class="mt-10">{{ partial:components/button }}</div>
+    </div>
+    <div
+        class="image-container {{ if index % 2 }} order-1 {{ else }} order-2 {{ /if }}"
+    >
+        <img src="{{ image }}" alt="{{ company:name }}" />
+    </div>
+</div>
+<!-- End -->
+{{ /panels }} {{ /partial:page_builder/{{ theme_settings:template }}/block }}

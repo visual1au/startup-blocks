@@ -1,0 +1,55 @@
+title: Form
+fields:
+  -
+    import: colour_picker
+    prefix: bg_
+  -
+    handle: slug
+    field:
+      type: slug
+      display: Slug
+      instructions: 'The slug is required for anchored links.'
+  -
+    handle: image
+    field:
+      max_files: 1
+      container: assets
+      type: assets
+      display: Image
+  -
+    import: header
+  -
+    import: markdown_content
+  -
+    handle: form
+    field:
+      max_items: 1
+      type: form
+      display: Form
+      validate:
+        - required
+      width: 33
+  -
+    handle: button_text
+    field:
+      default: Submit
+      type: text
+      display: 'Button Text'
+      width: 33
+  -
+    handle: button_alignment
+    field:
+      options:
+        -
+          key: start
+          value: Left
+        -
+          key: center
+          value: Center
+        -
+          key: end
+          value: Right
+      default: center
+      type: button_group
+      display: 'Button Alignment'
+      width: 33

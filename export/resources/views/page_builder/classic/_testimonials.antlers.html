@@ -1,0 +1,40 @@
+{{ partial:page_builder/{{ theme_settings:template }}/block class="testimonials"
+}}
+<div class="swiper" data-cols-sm="1" data-cols-md="1" data-cols-lg="1">
+    <div class="swiper-wrapper">
+        {{ collection:testimonials }}
+        <div class="swiper-slide">
+            <div
+                class="{{ if image }} grid grid-cols-1 sm:grid-cols-2 gap-10 lg:gap-20 {{ /if }}"
+            >
+                <div class="flex flex-col justify-center">
+                    {{ partial:components/rating }}
+                    <h3 class="uppercase font-bold my-4">"{{ title }}"</h3>
+                    <p class="font-bold">{{ author }}</p>
+                    <p class="text-darkGrey">{{ role }}</p>
+                </div>
+
+                {{ if image }}
+                <image
+                    src="{{ image }}"
+                    alt="testimonial-image"
+                    class="aspect-square object-cover size-full"
+                />
+                {{ /if }}
+            </div>
+        </div>
+
+        {{ /collection:testimonials }}
+    </div>
+    <div class="swiper-pagination"></div>
+
+    <!-- Navigation -->
+    <div class="swiper-button-prev">
+        <i class="fa-thin fa-chevron-left"></i>
+    </div>
+    <div class="swiper-button-next">
+        <i class="fa-thin fa-chevron-right"></i>
+    </div>
+</div>
+<!-- End Testimonials Collection -->
+{{ /partial:page_builder/{{ theme_settings:template }}/block }}

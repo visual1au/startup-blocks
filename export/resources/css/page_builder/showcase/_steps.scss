@@ -1,0 +1,161 @@
+@use "sass:list";
+@use "sass:math";
+
+// Variables
+$step-content-width: 50px;
+$border-of-snake-width: 1px;
+$border-of-snake: #{$border-of-snake-width} solid #0651FF;
+$border-of-snake-radius: 0px;
+
+// Border variables
+$horizontal-between-items: $border-of-snake;
+$horizontal-between-rows: $border-of-snake;
+$vertical-row-edge: $border-of-snake;
+$horizonta-row-edge: $border-of-snake;
+
+// Breakpoint variables
+$number-of-cols: 1, 2, 3;
+$breakpoints-media: (
+    "only screen and (max-width : 599px)",
+    "only screen and (min-width : 600px) and (max-width : 999px)",
+    "only screen and (min-width : 1000px)"
+);
+$bp: list.zip($number-of-cols, $breakpoints-media);
+
+// Basic steps styling (accordion variant)
+.steps {
+    .vertical-line {
+        @apply absolute top-4 left-4 mt-0.5 -ml-px h-full w-0.5 bg-primary;
+    }
+
+    .step-item {
+        @apply relative flex items-start cursor-pointer;
+
+        .step-number {
+            @apply flex h-9 items-center;
+
+            .step-count {
+                @apply relative z-10 flex size-8 items-center justify-center rounded-full border border-primary transition-colors duration-300 ease-in-out;
+
+                &.active {
+                    @apply bg-primary text-white;
+                }
+
+                &.inactive {
+                    @apply bg-white text-primary hover:bg-primary hover:text-white;
+                }
+            }
+        }
+
+        .content {
+            @apply ml-4 flex min-w-0 flex-col mt-1;
+
+            h4 {
+                @apply text-black font-bold;
+            }
+
+            p {
+                @apply text-darkGrey mt-2;
+            }
+        }
+    }
+}
+
+// Looped steps list
+.steps-list-looped {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: $border-of-snake-radius;
+
+    .step-wrapper {
+        @apply flex flex-nowrap justify-items-stretch;
+        flex-basis: 33%;
+        margin-bottom: -$border-of-snake-width;
+        border-bottom: $horizontal-between-rows;
+
+        &::before,
+        &::after {
+            content: '';
+            display: block;
+            flex-basis: 100%;
+        }
+
+        &::before {
+            height: 50%;
+            border-bottom: $horizontal-between-items;
+        }
+
+        &::after {
+            align-self: self-end;
+            margin-top: auto;
+            margin-bottom: -$border-of-snake-width;
+            height: calc(50% + #{$border-of-snake-width * 2});
+            border-top: $horizontal-between-items;
+        }
+
+        // First and last element styling
+        &:first-child::before {
+            border-bottom-color: transparent;
+            border-top-color: transparent;
+            border-left-color: transparent;
+        }
+
+        &:last-child::after {
+            border-top-color: transparent;
+            border-bottom-color: transparent;
+            border-right-color: transparent;
+        }
+
+        .step-content {
+            flex-shrink: 0;
+            flex-basis: $step-content-width;
+            @apply my-5;
+        }
+    }
+}
+
+// Responsive breakpoints
+@each $breakpoint-cols, $breakpoint-media in $bp {
+    @media #{$breakpoint-media} {
+        .step-wrapper {
+            flex-basis: calc(100% / #{$breakpoint-cols}) !important;
+
+            // Right edge styling
+            &:nth-child(#{$breakpoint-cols}n)::after {
+                margin-right: -$border-of-snake-radius;
+                border-bottom: $horizonta-row-edge;
+                border-right: $vertical-row-edge;
+                border-top-right-radius: $border-of-snake-radius;
+                border-bottom-right-radius: $border-of-snake-radius;
+            }
+
+            // Left edge styling
+            &:nth-child(#{$breakpoint-cols}n+1)::before {
+                margin-left: -$border-of-snake-radius;
+                border-top: $horizonta-row-edge;
+                border-left: $vertical-row-edge;
+                border-top-left-radius: $border-of-snake-radius;
+                border-bottom-left-radius: $border-of-snake-radius;
+            }
+        }
+
+        // Last line handling
+        $imax: $breakpoint-cols + 1;
+        @for $i from 1 through $imax {
+            $butNot: "#{$breakpoint-cols}n + #{$breakpoint-cols}";
+            .step-wrapper:nth-last-child(#{$i}):nth-child(#{$butNot}) ~ .step-wrapper {
+                border-bottom-color: transparent;
+            }
+        }
+
+        // First line handling (e.g., 4 in row, but there is only 3)
+        @for $i from 1 through $breakpoint-cols {
+            $butNot: "-n + #{$imax - $i}";
+            .step-wrapper:nth-child(#{$i}):nth-last-child(#{$butNot}) {
+                border-bottom-color: transparent;
+            }
+        }
+    }
+}

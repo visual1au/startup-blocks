@@ -1,0 +1,25 @@
+{{ if enable_rating }}
+<div>
+    {{ if rating === 5 }}
+    <i class="fa-solid fa-star-sharp text-yellow-500 fa-lg"></i>
+    <i class="fa-solid fa-star-sharp text-yellow-500 fa-lg"></i>
+    <i class="fa-solid fa-star-sharp text-yellow-500 fa-lg"></i>
+    <i class="fa-solid fa-star-sharp text-yellow-500 fa-lg"></i>
+    <i class="fa-solid fa-star-sharp text-yellow-500 fa-lg"></i>
+    {{ elseif rating === 4 }}
+    <i class="fa-solid fa-star-sharp text-yellow-500 fa-lg"></i>
+    <i class="fa-solid fa-star-sharp text-yellow-500 fa-lg"></i>
+    <i class="fa-solid fa-star-sharp text-yellow-500 fa-lg"></i>
+    <i class="fa-solid fa-star-sharp text-yellow-500 fa-lg"></i>
+    {{ elseif rating === 3 }}
+    <i class="fa-solid fa-star-sharp text-yellow-500 fa-lg"></i>
+    <i class="fa-solid fa-star-sharp text-yellow-500 fa-lg"></i>
+    <i class="fa-solid fa-star-sharp text-yellow-500 fa-lg"></i>
+    {{ elseif rating === 2 }}
+    <i class="fa-solid fa-star-sharp text-yellow-500 fa-lg"></i>
+    <i class="fa-solid fa-star-sharp text-yellow-500 fa-lg"></i>
+    {{ elseif rating === 1 }}
+    <i class="fa-solid fa-star-sharp text-yellow-500 fa-lg"></i>
+    {{ /if }}
+</div>
+{{ /if }}

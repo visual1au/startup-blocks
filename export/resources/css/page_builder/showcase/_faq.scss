@@ -1,0 +1,31 @@
+.faq-section {
+    @apply mx-auto flex gap-16;
+
+    header {
+        img {
+            @apply h-72 w-auto my-8;
+        }
+
+        .buttons {
+            @apply mt-8;
+        }
+    }
+
+    .faq-container {
+        @apply overflow-hidden rounded-md border-none bg-transparent text-start flex flex-col gap-4;
+
+    .faq-item {
+        @apply px-6 hover:bg-primary/5 transition-colors duration-700 ease-in-out;
+
+        button.question {
+            @apply flex w-full items-center justify-between gap-4;
+            @apply py-4 text-lg text-start focus-visible:outline-none font-medium;
+            @apply group-hover:text-primary;
+        }
+
+        div.answer {
+            @apply prose-p:text-base prose-p:text-darkGrey pb-4;
+        }
+}
+    }
+}

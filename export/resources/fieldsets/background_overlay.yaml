@@ -1,0 +1,32 @@
+title: 'Background Overlay'
+fields:
+  -
+    handle: background_image
+    field:
+      max_files: 1
+      container: assets
+      type: assets
+      display: 'Background Image'
+  -
+    handle: overlay
+    field:
+      type: toggle
+      display: Overlay
+      width: 50
+  -
+    handle: overlay_colour
+    field: colour_picker.colour
+    config:
+      display: 'Overlay Colour'
+      width: 50
+      if:
+        overlay: 'equals true'
+  -
+    handle: overlay_opacity
+    field: colour_picker.opacity
+    config:
+      display: 'Overlay Opacity'
+      if:
+        colour: 'not #ffffff'
+        overlay: 'equals true'
+      width: 50

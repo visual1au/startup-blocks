@@ -1,0 +1,72 @@
+title: Company
+data:
+  name: 'Lorem Ipsum'
+  logo: logoipsum-custom-logo.svg
+  icon: logoipsum-381.png
+  social_links:
+    -
+      id: m508waqx
+      label: Facebook
+      link: facebook.com
+      fontawesome_icon:
+        code: '<i class="fa-brands fa-facebook"></i>'
+        mode: htmlmixed
+      type: social
+      enabled: true
+      social_icon:
+        -
+          id: mdmlxozy
+          style: brands
+          brands: facebook
+          icon_colour: '#ffffff'
+          icon_hover_colour: '#0651FF'
+          icon_size: 6
+    -
+      id: m508xay9
+      label: Instagram
+      link: instagram.com
+      fontawesome_icon:
+        code: '<i class="fa-brands fa-instagram"></i>'
+        mode: htmlmixed
+      type: social
+      enabled: true
+      social_icon:
+        -
+          id: mdmly3te
+          style: brands
+          brands: instagram
+          icon_colour: '#ffffff'
+          icon_hover_colour: '#0651FF'
+          icon_size: 6
+    -
+      id: m508y2vb
+      label: LinkedIn
+      link: linkedin.com
+      fontawesome_icon:
+        code: '<i class="fa-brands fa-linkedin"></i>'
+        mode: htmlmixed
+      type: social
+      enabled: true
+      social_icon:
+        -
+          id: mdmoieyc
+          style: brands
+          brands: linkedin
+          icon_colour: '#ffffff'
+          icon_hover_colour: '#0651FF'
+          icon_size: 6
+  legal_links:
+    -
+      id: m50a039k
+      label: 'Privacy Policy'
+      entry:
+        - c105df7d-bc96-4b06-adfe-598144619868
+      type: legal
+      enabled: true
+    -
+      id: m50c9x80
+      label: 'Terms & Conditions'
+      entry:
+        - 61178f15-f98c-4852-9c9c-47a35eea3ba8
+      type: legal
+      enabled: true

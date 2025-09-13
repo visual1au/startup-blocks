@@ -1,0 +1,27 @@
+{{ partial:page_builder/{{ theme_settings:template }}/block class="news"}}
+<div class="mb-10 text-center md:text-start">
+    {{ news_title }} {{ partial:components/header }} {{ /news_title }}
+</div>
+
+{{ if limit > 0 }}
+<div class="collection">
+    {{ collection:news taxonomy:categories="{ get:category }" sort="date:desc"
+    limit="{{ limit }}" }} {{ partial:news/card }} {{ /collection:news }}
+</div>
+<div class="mt-10 flex justify-center">
+    <a href="/news" class="btn btn-primary">View All</a>
+</div>
+{{ else }}
+
+<!-- Paginated -->
+{{ collection:news taxonomy:categories="{ get:category }" sort="date:desc"
+paginate="{{ paginate }}" as="news" }}
+
+<!-- Categories -->
+{{ partial:news/categories }}
+
+<div class="collection">{{ news }} {{ partial:news/card }} {{ /news }}</div>
+
+<!-- Pagination -->
+{{ partial:news/pagination }} {{ /collection:news }} {{ /if }} {{
+/partial:page_builder/{{ theme_settings:template }}/block }}

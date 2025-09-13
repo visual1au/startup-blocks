@@ -1,0 +1,45 @@
+<footer>
+    <div class="container">
+        <div class="wrapper-1">
+            <a href="/" class="logo">{{ partial:components/logo }} </a>
+            <ul class="links">
+                {{ nav:footer }}
+                <li>
+                    <a
+                        class="{{ if is_current }} text-primary {{ /if }}"
+                        href="{{ url }}"
+                        >{{ title }}</a
+                    >
+                </li>
+                {{ /nav:footer }}
+            </ul>
+        </div>
+        <hr />
+
+        <!-- Copyright -->
+        <div class="wrapper-2">
+            <span class="copyright"
+                >&copy {{ now | format('Y') }} {{ company:name }}. All Rights
+                Reserved.
+            </span>
+
+            <ul class="flex text-white text-sm">
+                {{ company:legal_links }}
+                <li>
+                    <a href="{{ entry:0 | url }}">{{ label }}</a>
+                </li>
+                {{ if !last }}
+                <span class="mx-4">|</span>
+                {{ /if }} {{ /company:legal_links }}
+            </ul>
+            <div class="social-links">
+                {{ company:social_links }}
+                <a href="{{ link }}">
+                    {{ social_icon }} {{ partial:components/icon }} {{
+                    /social_icon }}
+                </a>
+                {{ /company:social_links }}
+            </div>
+        </div>
+    </div>
+</footer>

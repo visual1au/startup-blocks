@@ -1,0 +1,115 @@
+title: 'Page builder'
+fields:
+  -
+    handle: page_builder
+    field:
+      type: replicator
+      localizable: true
+      hide_display: true
+      collapse: true
+      listable: false
+      display: 'Page builder'
+      button_label: 'Add block'
+      sets:
+        interactive:
+          display: Interactive
+          instructions: 'Interactive blocks.'
+          icon: programming-script-code
+          sets:
+            form:
+              display: Form
+              instructions: 'Select and render a form.'
+              icon: mail-chat-bubble-text
+              fields:
+                -
+                  import: form
+            faq:
+              display: FAQ
+              icon: alert-help-question
+              fields:
+                -
+                  import: faq
+            panels:
+              display: Panels
+              icon: dashboard-layout-3
+              fields:
+                -
+                  import: panels
+            hero:
+              display: Hero
+              icon: align-object-top
+              fields:
+                -
+                  import: hero
+            cards:
+              display: Cards
+              icon: dashboard-layout
+              fields:
+                -
+                  import: cards
+            steps:
+              display: Steps
+              icon: arrow-roadmap-path-flow
+              fields:
+                -
+                  import: steps
+            engagement_modal:
+              display: 'Engagement Modal'
+              icon: layout-header
+              fields:
+                -
+                  import: engagement_modal
+            news:
+              display: News
+              icon: media-news-paper
+              fields:
+                -
+                  import: news
+            marquee:
+              display: Marquee
+              icon: layout-carousel-horizontal
+              fields:
+                -
+                  import: marquee
+            header:
+              display: Header
+              icon: layout-header
+              fields:
+                -
+                  import: header
+            testimonials:
+              display: Testimonials
+              icon: text-formatting-quotation
+              fields:
+                -
+                  import: testimonials
+            cta:
+              display: CTA
+              icon: alert-warning-exclamation-mark
+              fields:
+                -
+                  import: cta
+            featured_image:
+              display: 'Featured Image'
+              icon: media-image-picture-orientation
+              fields:
+                -
+                  import: featured_image
+            content:
+              display: Content
+              icon: text-formatting-initial-letter
+              fields:
+                -
+                  import: content
+        text:
+          display: Text
+          instructions: 'Text based blocks.'
+          icon: text-formatting-initial-letter
+          sets:
+            article:
+              display: Article
+              instructions: 'Long form content, can be expanded with media like figures, video, quotes or tables.'
+              icon: text-formatting-image-bottom
+              fields:
+                -
+                  import: article

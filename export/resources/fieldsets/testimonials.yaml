@@ -1,0 +1,10 @@
+title: Testimonials
+fields:
+  -
+    import: colour_picker
+    prefix: bg_
+  -
+    handle: slug
+    field:
+      type: slug
+      display: Slug

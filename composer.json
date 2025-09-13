@@ -1,0 +1,24 @@
+{
+    "name": "visual1au/startup-blocks",
+    "extra": {
+        "statamic": {
+            "name": "Startup Blocks",
+            "description": "Modular design system, with multiple themes and variations of page builder blocks"
+        },
+        "laravel": {
+            "providers": [
+                "Visual1Au\\StartupBlocks\\ServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Visual1Au\\StartupBlocks\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests"
+        }
+    }
+}

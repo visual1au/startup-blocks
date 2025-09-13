@@ -1,0 +1,75 @@
+{{ partial:page_builder/{{ theme_settings:template }}/block }}
+<div class="form-section">
+    <div class="form">
+        <header>
+            {{ partial:components/header }}
+            {{ partial:components/markdown }}
+        </header>
+        {{ if form:handle }}
+            {{ form:create :in="form:handle" js="alpine:form" attr:x-ref="form" }}
+                {{ if errors }}
+                    <div id="form-errors" class="form-errors" role="alert">
+                        <span class="font-bold">Something doesn't look right.</span> Please
+                        check the following required fields:
+                        <ul>
+                            {{ errors }}
+                                <li>{{ value }}</li>
+                            {{ /errors }}
+                        </ul>
+                    </div>
+                {{ /if }}
+                <div class="flex flex-wrap">
+                    {{ sections }}
+                        <header class="form-display">
+                            <h3 class="font-bold">{{ display}}</h3>
+                            <p>{{ instructions }}</p>
+                        </header>
+                        {{ fields }}
+                            <template x-if="{{ show_field }}">
+                                <div class="mb-4 sm:px-2 {{ if width == '50' }}sm:w-1/2 w-full{{ else }}w-full{{ /if }}">
+                                    <label class="text-dark">
+                                        {{ display }}
+                                        {{ if validate | contains:required }}
+                                            <sup class="error">*</sup>
+                                        {{ /if }}
+                                    </label>
+                                    <div>
+                                        {{ if handle == 'submission_date' }}
+                                            <input type="hidden" name="submission_date" value="{{ now }}" />
+                                        {{ else }}
+                                            {{ field }}
+                                        {{ /if }}
+                                    </div>
+                                    {{ if error }}
+                                        <p class="error text-xs mt-1">{{ error }}</p>
+                                    {{ /if }}
+                                </div>
+                            </template>
+                        {{ /fields }}
+                        <!-- Spacer -->
+                        <div class="py-12"></div>
+                    {{ /sections }}
+
+                    <!-- Honeypot - must match honeypot field name in CP Form config -->
+                    <div class="mb-4 px-2 w-full poohbear">
+                        <label class="text-secondary">Form Username<sup class="error">*</sup></label>
+                        <div><input type="text" name="form_username" /></div>
+                    </div>
+
+                    <!-- Hidden field with submission date -->
+                    <input type="hidden" name="submission_date" value="{{ now format="Y-m-d H:i:s" }}">
+                </div>
+                <div class="flex justify-{{ button_alignment }} mt-4">
+                    <button class="btn btn-primary {{ if image }} !w-full {{ /if }} mx-2" type="submit">{{ button_text }}</button>
+                </div>
+            {{ /form:create }}
+        {{ /if }}
+    </div>
+
+    {{ if image }}
+    <div class="image-container">
+        <img src="{{ image }}" />
+    </div>
+    {{ /if }}
+</div>
+{{ /partial:page_builder/{{ theme_settings:template }}/block }}

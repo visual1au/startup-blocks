@@ -1,0 +1,27 @@
+.marquee {
+    @apply relative overflow-hidden bg-white;
+
+    .gradient-overlay-left {
+        @apply absolute inset-y-0 start-0 z-10 w-20 bg-gradient-to-r from-white to-transparent sm:w-40 md:w-56 lg:w-96;
+    }
+
+    .gradient-overlay-right {
+        @apply absolute inset-y-0 end-0 z-10 w-20 bg-gradient-to-l from-white to-transparent lg:w-96;
+    }
+
+    .marquee-track {
+        @apply relative flex w-[500%] animate-full-tl sm:w-[400%] md:w-[300%] lg:w-[200%] rtl:animate-full-tr;
+
+        .marquee-list {
+            @apply flex w-full shrink-0 flex-nowrap items-center justify-around gap-10 px-5;
+
+            .logo-wrapper {
+                @apply flex h-24 flex-shrink-0 items-center justify-center;
+
+                .logo {
+                    @apply max-h-full max-w-full object-contain;
+                }
+            }
+        }
+    }
+}

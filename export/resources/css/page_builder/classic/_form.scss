@@ -1,0 +1,46 @@
+.form-section {
+    @apply flex gap-10;
+
+    .form {
+        @apply lg:p-6 xl:p-12 max-w-3xl mx-auto;
+
+        .form-errors {
+            @apply p-4 mb-4 text-sm text-white rounded-lg bg-secondary;
+
+            ul {
+                @apply max-w-md space-y-1 list-disc list-inside mt-2;
+            }
+        }
+
+        .form-display {
+            @apply mb-4 px-2 w-full space-y-2 text-center md:text-start;
+        }
+
+        input,
+        select,
+        textarea {
+            @apply border border-darkGrey/20 text-base rounded-lg;
+            @apply focus:ring-primary focus:ring-1 focus:border-primary;
+            @apply focus:outline-none;
+            @apply block w-full p-2.5;
+        }
+
+        .error {
+            @apply text-primary;
+        }
+
+        /* Honeypot */
+        .poohbear {
+            display: none;
+        }
+    }
+
+    .image-container {
+        @apply max-w-lg hidden lg:block;
+
+        img {
+            @apply object-cover h-full;
+        }
+    }
+
+}

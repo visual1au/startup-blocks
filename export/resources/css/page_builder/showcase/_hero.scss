@@ -1,0 +1,10 @@
+.hero {
+    @apply bg-cover bg-center bg-no-repeat pt-20 lg:pt-20;
+    &.background-image {
+        @apply lg:pt-32 lg:pb-20;
+    }
+
+    header {
+        @apply text-center;
+    }
+}

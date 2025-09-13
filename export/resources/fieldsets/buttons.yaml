@@ -1,0 +1,31 @@
+title: Buttons
+fields:
+  -
+    handle: buttons
+    field:
+      mode: stacked
+      add_row: 'Add button'
+      type: grid
+      localizable: true
+      display: Buttons
+      replicator_preview: false
+      fullscreen: false
+      fields:
+        -
+          import: button
+  -
+    handle: buttons_alignment
+    field:
+      options:
+        -
+          key: start
+          value: Left
+        -
+          key: center
+          value: Center
+        -
+          key: end
+          value: Right
+      default: start
+      type: button_group
+      display: 'Buttons Alignment'

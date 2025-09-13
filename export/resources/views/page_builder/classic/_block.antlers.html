@@ -1,0 +1,37 @@
+<section
+    {{ if slug }} id="{{ slug }}" {{ /if }}
+    class="{{ class }} relative
+    {{ switch(
+        (bg_gradient == true) => 'bg-gradient-to-r from-[{{ bg_colour }}]/{{ bg_opacity }} to-[{{ bg_secondary_colour }}]/{{ bg_opacity }} ',
+        (bg_gradient == false) => 'bg-[{{ bg_colour }}] bg-opacity-{{ bg_opacity }}'
+        ) }}
+    "
+    {{ if style }} style="{{ style }}" {{ /if }}
+>
+    {{ if background_image:is_video }}
+        <video
+            autoplay
+            muted
+            loop
+            playsinline
+            class="absolute inset-0 w-full h-full object-cover bg-[{{ overlay_colour }}] bg-opacity-{{ overlay_opacity }}"
+        >
+            <source src="{{ background_image }}" type="video/mp4">
+        </video>
+    {{ elseif background_image }}
+        <div
+            class="absolute inset-0 bg-cover bg-center bg-blend-overlay"
+            style="background-image: url('{{ background_image }}');"
+        ></div>
+    {{ /if }}
+
+    {{ if overlay_colour }}
+        <div
+            class="absolute inset-0 bg-blend-overlay bg-[{{ overlay_colour }}] bg-opacity-{{ overlay_opacity }}"
+        ></div>
+    {{ /if }}
+
+    <div class="relative content-area">
+        <div class="inner-padding">{{ slot }}</div>
+    </div>
+</section>

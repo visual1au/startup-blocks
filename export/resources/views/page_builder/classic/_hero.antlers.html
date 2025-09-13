@@ -1,0 +1,18 @@
+<!-- Start of block -->
+{{ partial:page_builder/{{ theme_settings:template }}/block class="hero {{
+background_image ?= 'background-image' }}" }}
+
+<div class="flex flex-col sm:flex-row justify-between sm:space-x-10">
+    <!-- Header -->
+    {{ partial:components/header }}
+
+    <!-- Markdown -->
+    <div class="flex items-end">
+        {{ partial:components/markdown class="max-w-sm"}}
+    </div>
+</div>
+
+<!-- Buttons -->
+<div class="mt-8">{{ partial:components/button }}</div>
+<!-- End of block -->
+{{ /partial:page_builder/{{ theme_settings:template }}/block }}

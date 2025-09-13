@@ -1,0 +1,84 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: Template
+        fields:
+          -
+            handle: template
+            field:
+              options:
+                -
+                  key: classic
+                  value: Classic
+                -
+                  key: modern
+                  value: Modern
+                -
+                  key: showcase
+                  value: Showcase
+              default: classic
+              type: select
+              display: Template
+      -
+        display: 'Google Font'
+        fields:
+          -
+            handle: google_font
+            field:
+              type: code
+              display: 'Embed Code'
+      -
+        display: 'Theme Colours'
+        fields:
+          -
+            handle: primary
+            field:
+              type: color
+              display: Primary
+              width: 25
+          -
+            handle: secondary
+            field:
+              type: color
+              display: Secondary
+              width: 25
+          -
+            handle: tertiary
+            field:
+              type: color
+              display: Tertiary
+              width: 25
+          -
+            handle: quaternary
+            field:
+              type: color
+              display: Quaternary
+              width: 25
+          -
+            handle: white
+            field:
+              default: '#ffffff'
+              type: color
+              display: White
+              width: 25
+          -
+            handle: lightGrey
+            field:
+              type: color
+              display: 'Light Grey'
+              width: 25
+          -
+            handle: darkGrey
+            field:
+              type: color
+              display: 'Dark Grey'
+              width: 25
+          -
+            handle: black
+            field:
+              default: '#000000'
+              type: color
+              display: Black
+              width: 25

@@ -1,0 +1,82 @@
+{{ partial:page_builder/{{ theme_settings:template }}/block }}
+<div
+    class="faq-section
+        {{ switch(
+(layout == 'row') => 'flex-col text-center md:text-start md:flex-row',
+(layout == 'col') => 'flex-col text-center') }}
+    {{ switch(
+(layout == 'col' && width == 25) => 'max-w-lg',
+(layout == 'col' && width == 33) => 'max-w-xl',
+(layout == 'col' && width == 50) => 'max-w-2xl',
+(layout == 'col' && width == 66) => 'max-w-4xl',
+(layout == 'col' && width == 75) => 'max-w-6xl',
+(layout == 'col' && width == 100) => 'max-w-full',
+) }}"
+>
+    <header
+        class="
+            {{ switch(
+(layout == 'row' && width == 25) => 'md:w-[25%]',
+(layout == 'row' && width == 33) => 'md:w-[33%]',
+(layout == 'row' && width == 50) => 'md:w-[50%]',
+(layout == 'row' && width == 66) => 'md:w-[66%]',
+(layout == 'row' && width == 75) => 'md:w-[75%]',
+(layout == 'row' && width == 100) => 'md:w-[100%]',
+) }}"
+    >
+        {{ partial:components/header }} {{ partial:components/markdown }} {{ if
+        image }}
+        <img src="{{ image }}" alt="faq-image" />
+        {{ /if }} {{ if faq_buttons }}
+        <div class="buttons">
+            {{ faq_buttons }} {{ partial:components/button }} {{ /faq_buttons }}
+        </div>
+        {{ /if }}
+    </header>
+    <div
+        x-data="{ selectedAccordionItem: null }"
+        class="faq-container
+            {{ switch(
+(layout == 'row' && width == 25) => 'md:w-[75%]',
+(layout == 'row' && width == 33) => 'md:w-[66%]',
+(layout == 'row' && width == 50) => 'md:w-[50%]',
+(layout == 'row' && width == 66) => 'md:w-[33%]',
+(layout == 'row' && width == 75) => 'md:w-[25%]',
+(layout == 'row' && width == 100) => 'md:w-[0%]',
+) }}"
+    >
+        {{ faq_items }}
+        <div
+            class="faq-item group"
+            :class="selectedAccordionItem === '{{ id }}'  ?  'rounded-3xl bg-primary/5'  :  'rounded-full bg-lightGrey'"
+        >
+            <button
+                id=" controlsAccordionItem{{ id }}"
+                type="button"
+                aria-controls="accordionItem{{ id }}"
+                @click="selectedAccordionItem = (selectedAccordionItem === '{{ id }}' ? null : '{{ id }}')"
+                class="question"
+                :class="selectedAccordionItem === '{{ id }}'  ?  'text-primary'  :  ''"
+                :aria-expanded="selectedAccordionItem === '{{ id }}' ? 'true' : 'false'"
+            >
+                {{ question }}
+                <i
+                    class="fa-solid"
+                    :class="selectedAccordionItem === '{{ id }}'  ?  'fa-minus'  :  'fa-plus'"
+                ></i>
+            </button>
+            <div
+                x-cloak
+                x-show="selectedAccordionItem === '{{ id }}'"
+                id="accordionItem{{ id }}"
+                role="region"
+                aria-labelledby="controlsAccordionItem{{ id }}"
+                x-collapse.duration.200
+            >
+                <div class="answer">{{ answer | markdown }}</div>
+            </div>
+        </div>
+        {{ /faq_items }}
+    </div>
+</div>
+{{ /partial:page_builder/{{ theme_settings:template }}/block }}

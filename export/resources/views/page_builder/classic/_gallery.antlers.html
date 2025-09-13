@@ -1,0 +1,40 @@
+{{# TODO:: Apply the gradient switch to all other backgrounds #}} {{
+partial:page_builder/block }}
+<div class="mb-10 text-center md:text-start">
+    {{ gallery_title }} {{ partial:components/header }} {{ /gallery_title }}
+</div>
+<div
+    class="grid grid-cols-1 gap-4
+    {{ switch(
+(gallery_cols_sm == '1') => 'sm:grid-cols-1',
+(gallery_cols_sm == '2') => 'sm:grid-cols-2',
+(gallery_cols_sm == '3') => 'sm:grid-cols-3',
+(gallery_cols_sm == '4') => 'sm:grid-cols-4',
+(gallery_cols_sm == '5') => 'sm:grid-cols-5',
+(gallery_cols_sm == '6') => 'sm:grid-cols-6') }}
+    {{ switch(
+(gallery_cols_md == '1') => 'md:grid-cols-1',
+(gallery_cols_md == '2') => 'md:grid-cols-2',
+(gallery_cols_md == '3') => 'md:grid-cols-3',
+(gallery_cols_md == '4') => 'md:grid-cols-4',
+(gallery_cols_md == '5') => 'md:grid-cols-5',
+(gallery_cols_md == '6') => 'md:grid-cols-6') }}
+    {{ switch(
+(gallery_cols_lg == '1') => 'lg:grid-cols-1',
+(gallery_cols_lg == '2') => 'lg:grid-cols-2',
+(gallery_cols_lg == '3') => 'lg:grid-cols-3',
+(gallery_cols_lg == '4') => 'lg:grid-cols-4',
+(gallery_cols_lg == '5') => 'lg:grid-cols-5',
+(gallery_cols_lg == '6') => 'lg:grid-cols-6') }}"
+>
+    {{ images }}
+    <div>
+        <img
+            class="h-48 w-full rounded-lg object-cover"
+            src="{{ url }}"
+            alt=""
+        />
+    </div>
+    {{ /images }}
+</div>
+{{ /partial:page_builder/{{ theme_settings:template }}/block }}

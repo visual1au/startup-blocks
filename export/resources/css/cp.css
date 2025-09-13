@@ -1,0 +1,29 @@
+.global-header {
+  @apply bg-gradient-to-r;
+  background-image: linear-gradient(to right, #00e7f4, #f700f4);
+
+  .global-search,
+  input {
+    @apply bg-white;
+  }
+
+  .head-link a,
+  button {
+    @apply text-white !important;
+  }
+}
+
+/* Dark mode overrides */
+.dark .global-header {
+  @apply bg-none;
+}
+
+.dark .global-header .global-search,
+.dark .global-header input {
+  @apply bg-[#2b2d30] ;
+}
+
+.dark .global-header .head-link a,
+.dark .global-header button {
+  @apply text-gray-200;
+}

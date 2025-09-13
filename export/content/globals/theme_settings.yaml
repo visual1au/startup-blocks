@@ -1,0 +1,17 @@
+title: 'Theme Settings'
+data:
+  template: showcase
+  google_font:
+    code: |-
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    mode: htmlmixed
+  primary: '#0651FF'
+  secondary: '#181D27'
+  tertiary: '#eff4fe'
+  quaternary: '#f9f9f9'
+  white: '#ffffff'
+  lightGrey: '#FAFAFA'
+  darkGrey: '#414651'
+  black: '#181D27'

@@ -1,0 +1,9 @@
+title: CTA
+fields:
+  -
+    import: colour_picker
+    prefix: bg_
+  -
+    import: header
+  -
+    import: buttons

@@ -1,0 +1,66 @@
+title: Testimonial
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: enable_rating
+            field:
+              type: toggle
+              display: 'Enable Rating'
+              width: 33
+          -
+            handle: rating
+            field:
+              min: 1
+              max: 5
+              default: 5
+              type: range
+              display: Rating
+              width: 66
+              if:
+                enable_rating: 'equals true'
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              display: Content
+              validate:
+                - required
+              default: Placeholder
+          -
+            handle: author
+            field:
+              type: text
+              display: Author
+              width: 50
+          -
+            handle: role
+            field:
+              type: text
+              display: Role
+              width: 50
+          -
+            handle: image
+            field:
+              max_files: 1
+              container: assets
+              type: assets
+              display: Image
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: parent
+            field:
+              type: entries
+              collections:
+                - testimonials
+              max_items: 1
+              listable: false
+              localizable: true

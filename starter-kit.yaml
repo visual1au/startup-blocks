@@ -1,0 +1,31 @@
+updatable: true
+export_paths:
+  - app/Console/Commands
+  - app/Listeners
+  - app/Models/User.php
+  - app/Providers/AppServiceProvider.php
+  - app/Widgets
+  - content
+  - database/migrations
+  - config/filesystems.php
+  - config/statamic/assets.php
+  - config/statamic/protect.php
+  - config/statamic/cp.php
+  - config/statamic/eloquent-driver.php
+  - config/statamic/users.php
+  - config/auth.php
+  - content/globals
+  - resources
+  - .env.example
+  - bitbucket-pipelines.yml
+  - postcss.config.js
+  - production.Dockerfile
+  - vapor.yml
+  - public/assets
+  - package.json
+  - README.md
+  - tailwind.config.js
+  - tailwind.config.stataroid.js
+  - vite.config.js
+dependencies:
+  gerttimmerman/statamic-zapier: ^1.6

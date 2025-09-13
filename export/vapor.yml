@@ -1,0 +1,17 @@
+id: 71807
+name: startup-kit
+environments:
+  ignition:
+    memory: 1024
+    database: "standard-hosting-db"
+    cli-memory: 1024
+    cli-timeout: 900
+    cli-tmp-storage: 512
+    runtime: docker
+    dockerfile: production.Dockerfile
+    domain: "ignition.visual1.dev"
+    scheduler: true
+    build:
+      - "composer install --no-dev"
+      - "php artisan event:cache"
+      - "npm ci && npm run build && rm -rf node_modules"

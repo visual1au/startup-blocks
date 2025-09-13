@@ -1,0 +1,26 @@
+.panels {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-10;
+    &.not-last {
+        @apply mb-10 sm:mb-20;
+    }
+
+    .content {
+        @apply flex flex-col justify-center;
+        &.odd-panel {
+            @apply order-1 sm:order-2 sm:pl-10;
+        }
+        &.even-panel {
+            @apply order-1 sm:pr-10;
+        }
+
+        .icon {
+            @apply size-12 flex items-center justify-center bg-primary/20 rounded-full p-3 mb-4;
+        }
+    }
+
+    .image-container {
+        img {
+            @apply size-full aspect-square object-cover object-center rounded-3xl h-72 md:h-96;
+        }
+    }
+}

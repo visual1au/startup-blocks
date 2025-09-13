@@ -1,0 +1,13 @@
+<section
+    {{ if slug }} id="{{ slug }}" {{ /if }}
+    class="{{ class }} relative
+    {{ switch(
+        (bg_gradient == true) => 'bg-gradient-to-r from-[{{ bg_colour }}]/{{ bg_opacity }} to-[{{ bg_secondary_colour }}]/{{ bg_opacity }} ',
+        (bg_gradient == false) => 'bg-[{{ bg_colour }}] bg-opacity-{{ bg_opacity }}'
+        ) }}
+    "
+>
+    <div class="relative content-area ">
+        <div class="inner-padding">{{ slot }}</div>
+    </div>
+</section>

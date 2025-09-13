@@ -1,0 +1,25 @@
+title: Content
+fields:
+  -
+    import: colour_picker
+    prefix: bg_
+  -
+    handle: slug
+    field:
+      generate: false
+      type: slug
+      display: Slug
+  -
+    handle: columns
+    field:
+      type: replicator
+      display: Columns
+      sets:
+        new_set_group:
+          display: 'New Set Group'
+          sets:
+            new_set:
+              display: 'New Set'
+              fields:
+                -
+                  import: article

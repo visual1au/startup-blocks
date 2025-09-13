@@ -1,0 +1,32 @@
+{{ partial:navigation/{{ theme_settings:template }}/nav }}
+<section class="pt-20">
+    <div class="content-area min-h-screen">
+        <div class="inner-padding">
+            <h2 class="font-bold">{{ title }}</h2>
+            {{ if categories }}
+            <div class="flex flex-wrap gap-2">
+                {{ categories }}
+                <span class="news-category-badge bg-primary text-white"
+                    >{{ title }}</span
+                >
+                {{ /categories }}
+            </div>
+            {{ /if }}
+            <div class="my-12">
+                <figure class="float-left mr-6 mb-6 md:w-1/2 w-full">
+                    <img
+                        src="{{ featured_image }}"
+                        alt="{{ featured_image:alt }}"
+                        class="border border-inherit w-full object-cover max-h-72 sm:max-h-96
+                         {{ switch(
+                            ({{ theme_settings:template }} == 'showcase') => 'rounded-3xl',
+                            ({{ theme_settings:template }} == 'modern') => 'rounded-2xl',
+                        ) }}"
+                    />
+                </figure>
+                {{ partial:components/markdown }}
+            </div>
+        </div>
+    </div>
+</section>
+{{ partial:navigation/{{ theme_settings:template }}/footer }}

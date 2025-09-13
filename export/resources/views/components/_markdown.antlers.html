@@ -1,0 +1,13 @@
+<article
+    class="prose text-[{{ text_colour }}] text-{{ text_alignment }} max-w-none {{ class }} prose
+        prose-a:underline
+        prose-a:decoration-primary
+        prose-a:decoration-2
+        hover:prose-a:text-primary
+        prose-figure:my-0
+        prose-pre:whitespace-pre-wrap
+        prose-p:text-base
+        max-w-none"
+>
+    {{ content | markdown }}
+</article>

@@ -1,0 +1,83 @@
+{{ partial:page_builder/{{ theme_settings:template }}/block }}
+<div class="mb-10">
+{{ partial:components/header }}
+</div>
+<div class="grid grid-cols-1 gap-x-8 gap-y-12
+{{ switch(
+    (cards_cols_sm == '1') => 'sm:grid-cols-1',
+    (cards_cols_sm == '2') => 'sm:grid-cols-2',
+    (cards_cols_sm == '3') => 'sm:grid-cols-3',
+    (cards_cols_sm == '4') => 'sm:grid-cols-4',
+    (cards_cols_sm == '5') => 'sm:grid-cols-5',
+    (cards_cols_sm == '6') => 'sm:grid-cols-6') }}
+{{ switch(
+    (cards_cols_md == '1') => 'md:grid-cols-1',
+    (cards_cols_md == '2') => 'md:grid-cols-2',
+    (cards_cols_md == '3') => 'md:grid-cols-3',
+    (cards_cols_md == '4') => 'md:grid-cols-4',
+    (cards_cols_md == '5') => 'md:grid-cols-5',
+    (cards_cols_md == '6') => 'md:grid-cols-6') }}
+{{ switch(
+    (cards_cols_lg == '1') => 'lg:grid-cols-1',
+    (cards_cols_lg == '2') => 'lg:grid-cols-2',
+    (cards_cols_lg == '3') => 'lg:grid-cols-3',
+    (cards_cols_lg == '4') => 'lg:grid-cols-4',
+    (cards_cols_lg == '5') => 'lg:grid-cols-5',
+    (cards_cols_lg == '6') => 'lg:grid-cols-6') }}
+">
+    {{ cards }}
+        {{ if flip }}
+            <!-- Desktop -->
+            <div class="group min-h-[300px] h-full [perspective:1000px] hidden md:block">
+                <div class="relative w-full h-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                    <!-- Front Side -->
+                    <div class="w-full h-full flex flex-col items-center justify-center [backface-visibility:hidden]">
+                        <img src="{{ image }}" alt="icon" class="object-cover object-center mb-6 min-h-64 rounded-2xl">
+                        {{ partial:components/header }}
+                    </div>
+
+                    <!-- Back Side -->
+                    <div class="absolute inset-0 flex flex-col items-center  justify-center [backface-visibility:hidden] [transform:rotateY(180deg)] text-center">
+                        <div class="line-clamp-6 text-darkGrey">
+                            {{ content }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile -->
+            <div class="min-h-[300px] h-full block md:hidden">
+                <div class="flex flex-col"
+                >
+                    <img src="{{ image }}" alt="icon" class="object-cover object-center mb-6 min-h-64 rounded-2xl">
+                    {{ card_title }}
+                        <{{ heading }} class="mb-4 text-[{{ text_colour }}]">
+                            {{ title }}
+                        </{{ heading }}>
+                    {{ /card_title }}
+                    {{ partial:components/header }}
+                    <div class="line-clamp-6 text-darkGrey">
+                        {{ content }}
+                    </div>
+                </div>
+            </div>
+        {{ else }}
+            <div class="min-h-[300px] h-full">
+                <div class="flex flex-col"
+                >
+                    <img src="{{ image }}" alt="icon" class="object-cover object-center mb-6 min-h-64 rounded-2xl">
+                    {{ card_title }}
+                        <{{ heading }} class="mb-4 text-[{{ text_colour }}]">
+                            {{ title }}
+                        </{{ heading }}>
+                    {{ /card_title }}
+                    {{ partial:components/header }}
+                    <div class="line-clamp-6 text-darkGrey">
+                        {{ content }}
+                    </div>
+                </div>
+            </div>
+        {{ /if }}
+    {{ /cards }}
+</div>
+{{ /partial:page_builder/{{ theme_settings:template }}/block }}

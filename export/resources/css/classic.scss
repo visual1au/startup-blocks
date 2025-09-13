@@ -1,0 +1,27 @@
+@use "tailwindcss/base";
+@use "tailwindcss/components";
+@use "tailwindcss/utilities";
+
+@use "variables";
+
+@use "layouts/global";
+@use "layouts/splash";
+
+// Components
+@use "components/classic/button";
+@use "components/classic/typography";
+
+// Page Builder
+@use "page_builder/classic/hero";
+@use "page_builder/classic/testimonials";
+@use "page_builder/classic/form";
+@use "page_builder/classic/panels";
+@use "page_builder/classic/faq";
+@use "page_builder/classic/cta";
+@use "page_builder/classic/steps";
+@use "page_builder/classic/marquee";
+@use "page_builder/classic/news";
+
+// Navigation
+@use "navigation/classic/nav";
+@use "navigation/classic/footer";

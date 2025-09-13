@@ -1,0 +1,34 @@
+{{ partial:navigation/{{ theme_settings:template }}/nav class="default"}}
+<section id="success" class="flex-grow">
+    <div class="content-area">
+        <div class="inner-padding">
+            <div
+                class="text-center flex flex-col items-center justify-center min-h-[50vh]"
+            >
+                <h2 class="text-black font-bold mx-auto">
+                    {{ title | upper }}
+                </h2>
+                <i
+                    class="fa-regular fa-circle-check fa-5x text-primary my-6"
+                ></i>
+                <p class="mb-4 text-dark text-center">{{ content }}</p>
+                <div class="mt-10">
+                    <a href="/" class="btn btn-primary">Go Back Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ partial:navigation/{{ theme_settings:template }}/footer }}
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        confetti({
+            particleCount: 150,
+            spread: 90,
+            origin: { y: 0.5 },
+            colors: ["#60A5FA", "#F472B6", "#FCD34D"],
+        });
+    });
+</script>

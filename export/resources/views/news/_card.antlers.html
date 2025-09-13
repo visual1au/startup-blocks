@@ -1,0 +1,32 @@
+<div class="card">
+    <div class="image-container"">
+        <img
+            src="{{ featured_image }}"
+            alt="icon"
+        />
+        <a
+            href="{{ url }}"
+            class="overlay"
+        ></a>
+    </div>
+    <div class="text-container">
+        {{ if categories }}
+        <div class="flex flex-wrap gap-2">
+            {{ categories }}
+            <span class="news-category-badge bg-primary text-white"
+                >{{ title }}</span
+            >
+            {{ /categories }}
+        </div>
+        {{ /if }}
+        <h4 class="font-bold">{{ title }}</h4>
+        {{ partial:components/markdown class="line-clamp-3"}}
+
+        <div>
+            <a href="{{ url }}" class="hover:text-primary">
+                <strong>READ MORE</strong>
+                <i class="fa-regular fa-chevron-right"></i>
+            </a>
+        </div>
+    </div>
+</div>
